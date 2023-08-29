@@ -52,7 +52,6 @@ public class FcmMessagingService extends FirebaseMessagingService {
     private static final String VIHICLE_APPROVED = "234";
     private static final String DOCUMENT_APPROVED = "235";
     private LocalBroadcastManager localBroadcastManager;
-
     @Override
     public void onMessageReceived(RemoteMessage remoteMessage) {
 
