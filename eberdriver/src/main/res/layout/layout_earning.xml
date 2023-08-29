@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:id="@+id/llOrderPayment"
+              xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:background="@color/color_app_gray_light"
+              android:gravity="center"
+              android:orientation="horizontal">
+
+    <com.elluminati.eber.driver.components.MyFontTextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:paddingBottom="@dimen/dimen_app_edit_text_padding"
+        android:paddingTop="@dimen/dimen_app_edit_text_padding"
+        android:textColor="@color/color_app_text"
+
+        android:text="@string/text_trip_number"
+        android:textSize="10sp"/>
+
+    <com.elluminati.eber.driver.components.MyFontTextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:textColor="@color/color_app_text"
+
+        android:paddingBottom="@dimen/dimen_app_edit_text_padding"
+        android:paddingTop="@dimen/dimen_app_edit_text_padding"
+        android:text="@string/text_payments"
+
+        android:textSize="10sp"/>
+
+    <com.elluminati.eber.driver.components.MyFontTextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:paddingBottom="@dimen/dimen_app_edit_text_padding"
+        android:paddingTop="@dimen/dimen_app_edit_text_padding"
+        android:text="@string/text_total"
+        android:textSize="10sp"/>
+
+    <com.elluminati.eber.driver.components.MyFontTextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:textColor="@color/color_app_text"
+
+        android:gravity="center"
+        android:paddingBottom="@dimen/dimen_app_edit_text_padding"
+        android:paddingTop="@dimen/dimen_app_edit_text_padding"
+        android:text="@string/text_profit"
+        android:textSize="10sp"/>
+
+
+    <com.elluminati.eber.driver.components.MyFontTextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:paddingBottom="@dimen/dimen_app_edit_text_padding"
+        android:textColor="@color/color_app_text"
+
+        android:paddingTop="@dimen/dimen_app_edit_text_padding"
+        android:text="@string/text_cash"
+        android:textSize="10sp"/>
+
+    <com.elluminati.eber.driver.components.MyFontTextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:visibility="visible"
+        android:paddingBottom="@dimen/dimen_app_edit_text_padding"
+        android:paddingTop="@dimen/dimen_app_edit_text_padding"
+        android:textColor="@color/color_app_text"
+
+        android:text="@string/text_wallet"
+
+        android:textSize="10sp"/>
+
+    <com.elluminati.eber.driver.components.MyFontTextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:textColor="@color/color_app_text"
+
+        android:paddingBottom="@dimen/dimen_app_edit_text_padding"
+        android:paddingTop="@dimen/dimen_app_edit_text_padding"
+        android:text="@string/text_earn"
+        android:textSize="10sp"/>
+
+</LinearLayout>

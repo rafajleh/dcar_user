@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/buttonBackground">
+        <shape
+            android:shape="oval">
+            <solid
+                android:color="@color/color_app_button">
+            </solid>
+            <stroke android:width="3dp"
+                android:color="@color/color_white" />
+
+        </shape>
+
+    </item>
+    <item
+        android:top="10dp"
+        android:bottom="10dp"
+        android:right="7dp"
+        android:left="8dp"
+        android:gravity="center"
+        android:id="@+id/buttonImage"
+        android:drawable="@drawable/arrow"/>
+</layer-list>
