@@ -8,6 +8,7 @@ import android.text.Editable;
 import android.text.InputFilter;
 import android.text.TextWatcher;
 import android.view.View;
+import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -22,11 +23,15 @@ import com.elluminati.eber.driver.parse.ApiInterface;
 import com.elluminati.eber.driver.utils.AppLog;
 import com.elluminati.eber.driver.utils.Const;
 import com.elluminati.eber.driver.utils.Utils;
+import com.stripe.android.ApiResultCallback;
 import com.stripe.android.Stripe;
-import com.stripe.android.TokenCallback;
 import com.stripe.android.model.Card;
+import com.stripe.android.model.PaymentMethod;
+import com.stripe.android.model.PaymentMethodCreateParams;
 import com.stripe.android.model.Token;
+import com.stripe.android.view.CardInputWidget;
 
+import org.jetbrains.annotations.NotNull;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -57,15 +62,22 @@ public class AddCardActivity extends BaseAppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_card);
-        initToolBar();
-        etCardHolderName = findViewById(R.id.etCardHolderName);
-        etCreditCardNum = findViewById(R.id.etCreditCardNumber);
-        btnRegisterpay = findViewById(R.id.btnRegisterpay);
-        llimagepayment = findViewById(R.id.llimagepayment);
+       // initToolBar();
+      //  etCardHolderName = findViewById(R.id.etCardHolderName);
+      //  etCreditCardNum = findViewById(R.id.etCreditCardNumber);
+      //  btnRegisterpay = findViewById(R.id.btnRegisterpay);
+       // llimagepayment = findViewById(R.id.llimagepayment);
+        Button btn_submit= findViewById(R.id.btn_submit);
+        btn_submit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                saveCreditCard();
+            }
+        });
 
         etCvc = findViewById(R.id.etCvv);
         etMonth = findViewById(R.id.etMonth);
-        setCardTextWatcher();
+       // setCardTextWatcher();
 
 
         intent = getIntent();
@@ -226,7 +238,7 @@ public class AddCardActivity extends BaseAppCompatActivity {
         }
     }
 
-    private void setCardTextWatcher() {
+    /*private void setCardTextWatcher() {
 
         InputFilter[] FilterArray = new InputFilter[1];
         FilterArray[0] = new InputFilter.LengthFilter(19);
@@ -341,9 +353,9 @@ public class AddCardActivity extends BaseAppCompatActivity {
         });
 
 
-    }
+    }*/
 
-    private String getCreditCardType(String number) {
+   /* private String getCreditCardType(String number) {
         if (!Utils.isBlank(number)) {
             if (Utils.hasAnyPrefix(number, Card
                     .PREFIXES_AMERICAN_EXPRESS)) {
@@ -367,10 +379,44 @@ public class AddCardActivity extends BaseAppCompatActivity {
         }
         return Card.UNKNOWN;
 
-    }
+    }*/
 
     private void saveCreditCard() {
-        Utils.showCustomProgressDialog(this, getResources().getString(R.string
+        CardInputWidget cardInputWidget = findViewById(R.id.card_input_widget);
+        Card card = cardInputWidget.getCard();
+
+        if (card != null) {
+            // Stripe stripe = new Stripe(getApplicationContext(), "your_publishable_key");
+            Stripe stripe = new Stripe(this, preferenceHelper.getStripePublicKey());
+
+
+            PaymentMethodCreateParams params = PaymentMethodCreateParams.create(
+                    cardInputWidget.getPaymentMethodCard()
+            );
+
+            stripe.createPaymentMethod(params, new ApiResultCallback<PaymentMethod>() {
+                @Override
+                public void onSuccess(PaymentMethod paymentMethod) {
+                    // Handle successful creation
+                    String paymentMethodId = paymentMethod.id;
+                    // AppLog.Log("CARD_COUNTRY1", paymentMethod.toString());
+                    AppLog.Log("CARD_COUNTRY", paymentMethodId);
+                    addCard(paymentMethodId);
+                }
+
+                @Override
+                public void onError(@NotNull Exception e) {
+                    // Handle error
+                }
+            });
+            // Card information is valid, you can proceed with creating a Payment Method
+            // You can also access individual card details like card.getNumber(), card.getExpMonth(), etc.
+        } else {
+            // Card information is invalid, show an error to the user
+        }
+
+
+        /*Utils.showCustomProgressDialog(this, getResources().getString(R.string
                 .msg_waiting_for_add_card), false, null);
 
         Card card = new Card(etCreditCardNum.getText().toString(), cardExpMonth, cardExpYear, etCvc
@@ -417,19 +463,27 @@ public class AddCardActivity extends BaseAppCompatActivity {
             // handleError("");
             Utils.showToast(getString(R.string.msg_card_invalid), this);
             Utils.hideCustomProgressDialog();
-        }
+        }*/
     }
 
-    private void addCard(String paymentToken, String lastFour, String cardType) {
+    private void addCard(String paymentToken) {
 
         JSONObject jsonObject = new JSONObject();
         try {
             jsonObject.put(Const.Params.TYPE, Const.PROVIDER_UNIQUE_NUMBER);
-            jsonObject.put(Const.Params.PAYMENT_TOKEN, paymentToken);
-            jsonObject.put(Const.Params.LAST_FOUR, lastFour);
+            /*jsonObject.put(Const.Params.PAYMENT_TOKEN, paymentToken);
+            //jsonObject.put(Const.Params.LAST_FOUR, lastFour);
             jsonObject.put(Const.Params.CARD_TYPE, cardType);
             jsonObject.put(Const.Params.TOKEN, preferenceHelper.getSessionToken());
+            jsonObject.put(Const.Params.USER_ID, preferenceHelper.getProviderId());*/
+            jsonObject.put(Const.Params.PAYMENT_METHOD, paymentToken);
+            // jsonObject.put(Const.Params.LAST_FOUR, lastFour);
+            //jsonObject.put(Const.Params.CARD_TYPE, cardType);
+            jsonObject.put(Const.Params.TOKEN, preferenceHelper.getSessionToken());
             jsonObject.put(Const.Params.USER_ID, preferenceHelper.getProviderId());
+            AppLog.Log("CARD_COUNTRY11", paymentToken);
+            AppLog.Log("CARD_COUNTRY22", preferenceHelper.getSessionToken());
+
 
             Call<IsSuccessResponse> call = ApiClient.getClient().create(ApiInterface.class).addCard
                     (ApiClient.makeJSONRequestBody(jsonObject));

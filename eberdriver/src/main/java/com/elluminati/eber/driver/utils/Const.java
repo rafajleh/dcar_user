@@ -291,6 +291,7 @@ public class Const {
         public static final String PASSING_YEAR = "passing_year";
         public static final String VEHICLE_ID = "vehicle_id";
         public static final String PAYMENT_TOKEN = "payment_token";
+        public static final String PAYMENT_METHOD = "payment_method";
         public static final String LAST_FOUR = "last_four";
         public static final String CARD_TYPE = "card_type";
         public static final String WALLET = "wallet";
