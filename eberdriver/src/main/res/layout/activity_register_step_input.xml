@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Register_Step_Input"
+    android:background="@drawable/sp_background"
+    android:orientation="vertical">
+
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:orientation="vertical"-->
+<!--        tools:ignore="Suspicious0dp">-->
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="50dp"-->
+<!--            android:orientation="horizontal">-->
+
+<!--            <com.google.android.material.floatingactionbutton.FloatingActionButton-->
+<!--                android:id="@+id/btnSPmove"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                app:fabSize="mini"-->
+<!--                android:layout_gravity="end"-->
+<!--                android:layout_marginEnd="@dimen/dimen_horizontal_margin"-->
+<!--                app:backgroundTint="@color/color_app_button"-->
+<!--                app:srcCompat="@drawable/ic_arrow"/>-->
+
+<!--            <com.elluminati.eber.driver.components.MyAppTitleFontTextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:elevation="@dimen/dialog_elevation"-->
+<!--                android:gravity="center"-->
+<!--                android:padding="@dimen/activity_horizontal_margin"-->
+<!--                android:text="@string/text_register"-->
+<!--                android:textColor="@color/color_app_button"-->
+<!--                android:textSize="@dimen/size_general"/>-->
+
+<!--        </LinearLayout>-->
+<!--    </LinearLayout>-->
+
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:orientation="vertical"-->
+<!--        >-->
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_gravity="bottom"-->
+<!--            android:orientation="vertical">-->
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="50dp"-->
+<!--                android:layout_marginBottom="80dp"-->
+<!--                android:orientation="horizontal">-->
+
+<!--                <com.google.android.material.floatingactionbutton.FloatingActionButton-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    app:fabSize="mini"-->
+<!--                    android:layout_gravity="end"-->
+<!--                    android:layout_marginEnd="@dimen/dimen_horizontal_margin"-->
+<!--                    app:backgroundTint="@color/color_app_button"-->
+<!--                    app:srcCompat="@drawable/ic_arrow"/>-->
+
+<!--                <com.elluminati.eber.driver.components.MyAppTitleFontTextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:elevation="@dimen/dialog_elevation"-->
+<!--                    android:gravity="center"-->
+<!--                    android:padding="@dimen/activity_horizontal_margin"-->
+<!--                    android:text="@string/text_register"-->
+<!--                    android:textColor="@color/color_app_button"-->
+<!--                    android:textSize="@dimen/size_general"/>-->
+
+<!--            </LinearLayout>-->
+
+
+<!--        </LinearLayout>-->
+
+
+<!--    </LinearLayout>-->
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#90000000">
+
+        <LinearLayout
+            android:id="@+id/topbarLay"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingHorizontal="10dp">
+
+                        <com.google.android.material.floatingactionbutton.FloatingActionButton
+                            android:id="@+id/btnPrevScreen"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:fabSize="mini"
+                            android:layout_marginEnd="@dimen/dimen_horizontal_margin"
+                            app:backgroundTint="@color/color_app_button"
+                            app:srcCompat="@drawable/ic_arrow_back_black"/>
+
+
+            <com.elluminati.eber.driver.components.MyAppTitleFontTextView
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:layout_marginStart="5dp"
+                android:gravity="center_vertical"
+                android:textColor="@color/color_app_button"
+                android:paddingStart="15dp"
+                android:text="Register"
+                android:textSize="20sp" />
+
+        </LinearLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/btnlay"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="80dp"
+            android:gravity="center_vertical"
+            android:paddingHorizontal="10dp">
+
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/buttonNext"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:fabSize="mini"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                app:backgroundTint="@color/color_app_button"
+                app:srcCompat="@drawable/ic_keyboard_arrow_right_black_24dp"/>
+
+            <com.elluminati.eber.driver.components.MyFontTextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_toLeftOf="@id/buttonNext"
+                android:gravity="center"
+                android:text="@string/pager_first_text"
+                android:textColor="@color/color_app_yellow"
+                />
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_below="@+id/topbarLay"
+            android:layout_above="@+id/btnlay"
+            android:gravity="center_horizontal">
+            <!--        <com.google.android.material.tabs.TabLayout-->
+            <!--            android:id="@+id/tabLayout"-->
+            <!--            android:layout_width="match_parent"-->
+            <!--            android:layout_height="wrap_content"-->
+            <!--            app:tabSelectedTextColor="@color/teal_200"-->
+            <!--            app:tabIndicatorGravity="center"-->
+            <!--            app:tabGravity="center"-->
+            <!--            android:layout_marginTop="50dp"-->
+            <!--            app:tabIndicatorHeight="0dp"-->
+            <!--            app:tabMode="fixed"/>-->
+
+            <LinearLayout
+                android:id="@+id/dotShowLayout"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="50dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+            </LinearLayout>
+
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/viewPager2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+
+
+</LinearLayout>

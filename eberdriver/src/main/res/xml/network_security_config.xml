@@ -4,9 +4,14 @@
         <domain includeSubdomains="true">staging.appemporio.net</domain>
         <domain includeSubdomains="true">eber.developer.appemporio.net</domain>
         <domain includeSubdomains="true">eber.appemporio.net</domain>
-        <domain includeSubdomains="true">192.168.0.145:5002</domain>
+        <domain includeSubdomains="true">149.102.152.123</domain>
         <domain includeSubdomains="true">callacabluton.uk</domain>
         <domain includeSubdomains="true">myae.uk</domain>
 
     </domain-config>
 </network-security-config>
+<!--<network-security-config>
+    <domain-config cleartextTrafficPermitted="true">
+        <domain includeSubdomains="true">149.102.152.123</domain>
+    </domain-config>
+</network-security-config>-->

@@ -4,46 +4,50 @@ apply plugin: 'com.google.firebase.crashlytics'
 
 
 android {
-    compileSdkVersion 31
-    buildToolsVersion '29.0.3'
+    compileSdkVersion 34
 
     defaultConfig {
         applicationId "com.callacab.provider"
         minSdkVersion 21
-        targetSdkVersion 31
+        targetSdkVersion 34
         versionCode 17
         versionName "1.2.6"
         vectorDrawables.useSupportLibrary = true
         multiDexEnabled true
         resValue "string", "FACEBOOK_APP_ID", "126933474457184"
         resValue "string", "FB_LOGIN_PROTOCOL_SCHEME", "fb126933474457184"
-        resValue "string", "GOOGLE_ANDROID_API_KEY", "AIzaSyBRhcgwegTed4IE_2t1mVywzR52RmBkTuY"
+       // resValue "string", "GOOGLE_ANDROID_API_KEY", "AIzaSyBRhcgwegTed4IE_2t1mVywzR52RmBkTuY"
+        resValue "string", "GOOGLE_ANDROID_API_KEY", "AIzaSyAhEg1SyVgQMDaaxltYjZ4TtqXYfGRYOew"
 
     }
     buildTypes {
 
         release {
-            minifyEnabled true
+            minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            buildConfigField "String", "BASE_URL", '"https://theae.uk/"'
+           // buildConfigField "String", "BASE_URL", '"https://theae.uk/"'
            // buildConfigField "String", "BASE_URL", '"http://172.16.3.60:5000/"'
+            buildConfigField "String", "BASE_URL", '"http://149.102.152.123:8015"'
         }
 
         debug {
             minifyEnabled false
             debuggable true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            buildConfigField "String", "BASE_URL", '"https://theae.uk/"'
-          //  buildConfigField "String", "BASE_URL", '"http://172.16.3.60:5000/"'
+            //buildConfigField "String", "BASE_URL", '"https://theae.uk/"'
+            buildConfigField "String", "BASE_URL", '"http://149.102.152.123:8015"'
         }
 
     }
-
+    namespace 'com.elluminati.eber.driver'
     lintOptions {
         checkReleaseBuilds false
         // Or, if you prefer, you can continue to check for errors in release builds,
         // but continue the build even when errors are found:
         abortOnError false
+    }
+    buildFeatures {
+        buildConfig = true
     }
 
 }
@@ -53,9 +57,9 @@ dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     //noinspection GradleCompatible
     implementation 'androidx.cardview:cardview:1.0.0'
-    implementation 'androidx.appcompat:appcompat:1.0.2'
+    implementation 'androidx.appcompat:appcompat:1.7.0'
     implementation 'androidx.recyclerview:recyclerview:1.0.0'
-    implementation 'com.google.android.material:material:1.0.0'
+    implementation 'com.google.android.material:material:1.12.0'
     implementation 'com.google.android.gms:play-services-maps:17.0.0'
     implementation 'com.google.android.gms:play-services-location:17.0.0'
     implementation 'com.google.android.libraries.places:places:2.0.0'
@@ -71,7 +75,8 @@ dependencies {
     implementation 'com.google.maps.android:android-maps-utils:0.5'
     implementation 'com.facebook.android:facebook-android-sdk:4.41.0'
     implementation 'com.stripe:stripe-android:9.1.1'
-    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'androidx.activity:activity:1.9.0'
     testImplementation 'junit:junit:4.12'
     implementation 'com.google.firebase:firebase-crashlytics:17.3.0'
     implementation 'com.github.PhilJay:MPAndroidChart:v3.0.3'
@@ -83,9 +88,15 @@ dependencies {
     implementation 'com.github.bumptech.glide:glide:4.9.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.9.0'
     implementation 'androidx.multidex:multidex:2.0.1'
+    implementation 'com.android.volley:volley:1.1.1'
+    implementation 'com.google.android.libraries.places:places:2.0.0'
+    implementation 'com.firebaseui:firebase-ui-database:3.3.1'
+    //implementation "androidx.viewpager2:viewpager2:1.1.0"
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
     implementation('io.socket:socket.io-client:1.0.0') {
         // excluding org.json which is provided by Android
         exclude group: 'org.json', module: 'json'
     }
-    annotationProcessor 'androidx.annotation:annotation:1.1.0'
+    annotationProcessor 'androidx.annotation:annotation:1.8.0'
 }

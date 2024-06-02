@@ -514,8 +514,8 @@ public class RegisterActivity extends BaseAppCompatActivity implements TextView
         }
 
 
-        Utils.showCustomProgressDialog(this, getResources().getString(R.string
-                .msg_waiting_for_registering), false, null);
+//        Utils.showCustomProgressDialog(this, getResources().getString(R.string
+//                .msg_waiting_for_registering), false, null);
         Call<ProviderDataResponse> userDataResponseCall;
         if (!TextUtils.isEmpty(uploadImageFilePath)) {
             userDataResponseCall = ApiClient.getClient().create
@@ -874,6 +874,7 @@ public class RegisterActivity extends BaseAppCompatActivity implements TextView
     private void getCountryCodeList(String country) {
         int countryListSize = countryList.size();
         for (int i = 0; i < countryListSize; i++) {
+            Log.e("877",countryList.get(i).getCountryname());
             if (countryList.get(i).getCountryname().toUpperCase().startsWith(country.toUpperCase
                     ())) {
                 setCountry(i);
@@ -1369,8 +1370,8 @@ public class RegisterActivity extends BaseAppCompatActivity implements TextView
     }
 
     private void OTPVerify() {
-        Utils.showCustomProgressDialog(this, getResources().getString(R.string.msg_loading),
-                false, null);
+//        Utils.showCustomProgressDialog(this, getResources().getString(R.string.msg_loading),
+//                false, null);
         JSONObject jsonObject = new JSONObject();
         try {
             jsonObject.put(Const.Params.EMAIL, etEmail.getText());
@@ -1484,7 +1485,7 @@ public class RegisterActivity extends BaseAppCompatActivity implements TextView
     }
 
     private void getServicesCountry() {
-        Utils.showCustomProgressDialog(this, "", false, null);
+        //Utils.showCustomProgressDialog(this, "", false, null);
         Call<CountriesResponse> call = ApiClient.getClient().create(ApiInterface.class)
                 .getCountries();
         call.enqueue(new Callback<CountriesResponse>() {
@@ -1493,7 +1494,9 @@ public class RegisterActivity extends BaseAppCompatActivity implements TextView
                     response) {
                 if (parseContent.isSuccessful(response)) {
                     Utils.hideCustomProgressDialog();
+                    Log.e("countryr",response.body().toString());
                     countryList.addAll(response.body().getCountry());
+                    Log.e("countryl", String.valueOf(countryList.size()));
                     locationHelper.getLastLocation(RegisterActivity.this, new
                             OnSuccessListener<Location>() {
                                 @Override
@@ -1516,6 +1519,7 @@ public class RegisterActivity extends BaseAppCompatActivity implements TextView
 
             @Override
             public void onFailure(Call<CountriesResponse> call, Throwable t) {
+                Log.e("countryf", String.valueOf(t));
                 AppLog.handleThrowable(ProfileActivity.class.getSimpleName(), t);
             }
         });
@@ -1604,13 +1608,14 @@ public class RegisterActivity extends BaseAppCompatActivity implements TextView
         @Override
         protected void onProgressUpdate(Void... values) {
             super.onProgressUpdate(values);
-            getCountryCodeList("India");
+            getCountryCodeList("Bangladesh");
         }
 
         @Override
         protected void onPostExecute(Address address) {
             if (address != null) {
                 String countryName = address.getCountryName();
+                Log.e("1614",countryName);
                 getCountryCodeList(countryName);
                 String currentCityName;
                 if (address.getLocality() != null) {
@@ -1623,7 +1628,7 @@ public class RegisterActivity extends BaseAppCompatActivity implements TextView
                 AppLog.Log(Const.Tag.REGISTER_ACTIVITY, "countryName= " + countryName);
                 AppLog.Log(Const.Tag.REGISTER_ACTIVITY, "currentCityName= " + currentCityName);
             } else {
-                getCountryCodeList("United States");
+                getCountryCodeList("Bangladesh");
             }
         }
     }

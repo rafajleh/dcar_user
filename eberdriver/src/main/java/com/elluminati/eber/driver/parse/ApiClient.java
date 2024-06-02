@@ -77,7 +77,7 @@ public class ApiClient {
                     .addConverterFactory(ScalarsConverterFactory.create())
                     .addConverterFactory(GsonConverterFactory.create())
                     //.baseUrl(BASE_URL)
-                    .baseUrl("http://172.16.3.60:5000/")
+                    .baseUrl("http://149.102.152.123:8015")
                     .build();
         }
         return retrofit;

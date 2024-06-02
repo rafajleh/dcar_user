@@ -344,7 +344,7 @@ public abstract class BaseAppCompatActivity extends AppCompatActivity implements
     }
 
     protected void goToRegisterActivity() {
-        Intent registerIntent = new Intent(this, RegisterActivity.class);
+        Intent registerIntent = new Intent(this, Register_Step_Input.class);
         startActivity(registerIntent);
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }

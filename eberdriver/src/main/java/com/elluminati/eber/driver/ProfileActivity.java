@@ -27,6 +27,7 @@ import android.text.Editable;
 import android.text.InputFilter;
 import android.text.TextUtils;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
@@ -568,6 +569,7 @@ public class ProfileActivity extends BaseAppCompatActivity implements OTPListene
             public void onResponse(Call<ProviderDataResponse> call, Response<ProviderDataResponse
                     > response) {
                 if (parseContent.isSuccessful(response)) {
+                    Log.e("572",response.body().toString());
                     if (parseContent.saveProviderData(response.body(), false)) {
                         preferenceHelper.putAllDocUpload(response.body().getProviderData().getIsDocumentUploaded());
                         Utils.hideCustomProgressDialog();

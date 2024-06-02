@@ -252,6 +252,7 @@ public class SignInActivity extends BaseAppCompatActivity implements TextView
                 public void onResponse(Call<ProviderDataResponse> call,
                                        Response<ProviderDataResponse> response) {
                     if (parseContent.isSuccessful(response)) {
+                        Log.e("255",response.body().toString());
                         if (parseContent.saveProviderData(response.body(), true)) {
                             AppLog.Log(Const.Tag.REGISTER_ACTIVITY, "LogIn Success");
                             CurrentTrip.getInstance().clear();

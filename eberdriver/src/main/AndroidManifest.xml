@@ -6,6 +6,9 @@
     <uses-feature
         android:glEsVersion="0x00020000"
         android:required="true" />
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
 
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
@@ -26,7 +29,10 @@
         android:networkSecurityConfig="@xml/network_security_config"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".AddVehicle"></activity>
+        <activity
+            android:name=".Register_Step_Input"
+            android:exported="false" />
+        <activity android:name=".AddVehicle" />
         <activity android:name=".SetDestination" />
         <activity android:name=".ShowReferralActivity" />
         <activity android:name=".RefferralApplyActivity" />
@@ -37,8 +43,8 @@
 
         <activity
             android:name=".SplashScreenActivity"
-            android:screenOrientation="portrait"
             android:exported="true"
+            android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"
             android:windowSoftInputMode="stateHidden|adjustPan">
             <intent-filter>
@@ -54,8 +60,8 @@
             android:windowSoftInputMode="stateHidden|adjustPan" />
 
         <service
-            android:exported="true"
-            android:name=".FcmMessagingService">
+            android:name=".FcmMessagingService"
+            android:exported="true">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
@@ -155,8 +161,7 @@
 
         <receiver
             android:name=".broadcast.AfterBootStartLocationUpdateReceiver"
-            android:exported="true"
-            >
+            android:exported="true">
             <intent-filter android:exported="true">
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
                 <!-- <action android:name="android.intent.action.REBOOT"/> -->

@@ -5,6 +5,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -36,7 +37,7 @@ public class SplashScreenActivity extends BaseAppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
 
-
+         Log.e("check","rabbi");
         imglogo=findViewById(R.id.imglogo);
         lltxtview=findViewById(R.id.lltxtview);
 
@@ -82,6 +83,7 @@ public class SplashScreenActivity extends BaseAppCompatActivity {
     }
 
     private void checkIfGpsOrInternetIsEnable() {
+        Log.e("rabbi","1");
         if (!Utils.isInternetConnected(this)) {
             openInternetDialog();
         } else {
@@ -94,6 +96,7 @@ public class SplashScreenActivity extends BaseAppCompatActivity {
 
     @Override
     public void onNetworkConnectionChanged(boolean isConnected) {
+        Log.e("rabbi","2");
         if (isConnected) {
             closedEnableDialogInternet();
             getAPIKeys();
@@ -104,6 +107,7 @@ public class SplashScreenActivity extends BaseAppCompatActivity {
 
     @Override
     public void onGpsConnectionChanged(boolean isConnected) {
+        Log.e("rabbi","3");
         if (isConnected) {
             closedEnableDialogGps();
             getAPIKeys();
@@ -213,12 +217,14 @@ public class SplashScreenActivity extends BaseAppCompatActivity {
         if (oneTimeCall == 0) {
             oneTimeCall++;
             JSONObject jsonObject = new JSONObject();
+            Log.e("sp_error", Const.Params.PROVIDER_ID);
             try {
                 jsonObject.put(Const.Params.PROVIDER_ID, !TextUtils.isEmpty(preferenceHelper
                         .getSessionToken()) ? preferenceHelper.getProviderId() : null);
                 jsonObject.put(Const.Params.TOKEN, preferenceHelper.getSessionToken());
                 jsonObject.put(Const.Params.APP_VERSION, getAppVersion());
                 jsonObject.put(Const.Params.DEVICE_TYPE, Const.DEVICE_TYPE_ANDROID);
+                Log.e("rabbi",jsonObject.toString());
                 Call<SettingsDetailsResponse> call = ApiClient.getClient().create(ApiInterface
                         .class)
                         .getProviderSettingDetail
@@ -228,7 +234,7 @@ public class SplashScreenActivity extends BaseAppCompatActivity {
                     public void onResponse(Call<SettingsDetailsResponse> call,
                                            Response<SettingsDetailsResponse>
                                                    response) {
-
+                       // Log.e("sp_error1sp", response.toString());
                         if (parseContent.isSuccessful(response)) {
                             parseContent.parseProviderSettingDetail(response.body());
 
@@ -236,13 +242,24 @@ public class SplashScreenActivity extends BaseAppCompatActivity {
                              * check if user login session is not expired
                              */
                             AdminSettings adminSettings = response.body().getAdminSettings();
-                            if (checkVersionCode(adminSettings.getAndroidProviderAppVersionCode
+                            if (checkVersionCode(adminSettings.getAndroidUserAppVersionCode
+                                    ())) {
+                                openUpdateAppDialog(adminSettings
+                                        .isAndroidUserAppForceUpdate());
+                            } else if (!TextUtils.isEmpty(preferenceHelper.getSessionToken())) {
+
+                                moveWithUserSpecificPreference();
+
+                            } else {
+                                //finish();
+                                goToMainActivity();
+
+                            }
+                           /* if (checkVersionCode(adminSettings.getAndroidProviderAppVersionCode
                                     ())) {
                                 openUpdateAppDialog(adminSettings
                                         .isAndroidProviderAppForceUpdate());
                             } else {
-
-
                                 if (TextUtils.isEmpty(preferenceHelper.getSessionToken())) {
                                     goToMainActivity();
                                 } else {
@@ -250,7 +267,7 @@ public class SplashScreenActivity extends BaseAppCompatActivity {
                                 }
 
 
-                            }
+                            }*/
 
                         }
                     }
@@ -258,10 +275,13 @@ public class SplashScreenActivity extends BaseAppCompatActivity {
                     @Override
                     public void onFailure(Call<SettingsDetailsResponse> call, Throwable t) {
                         AppLog.handleThrowable(BaseAppCompatActivity.class.getSimpleName(), t);
+                       // goToSignInActivity();
+                        //Log.e("sp_error3sp", t.toString());
                     }
                 });
             } catch (JSONException e) {
                 e.printStackTrace();
+                Log.e("sp_error2sp", e.toString());
             }
         }
     }

@@ -18,7 +18,7 @@
     <color name="color_app_status_bar_green">#000000</color>
     <color name="color_app_theme_dark">#000000</color>
     <color name="color_app_theme_light">#000000</color>
-    <color name="color_app_button">#000000</color>
+    <color name="color_app_button">#00FFFF</color>
     <color name="color_app_button_tint">#000000</color>
     <color name="color_app_path">#47AAFF</color>
     <color name="color_end_trip_progress">#000000</color>
