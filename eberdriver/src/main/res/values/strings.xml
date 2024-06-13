@@ -744,5 +744,11 @@
     <string name="text_enter_message_rq">Please Enter Massage</string>
     <string name="text_topUP">Top Up</string>
     <string name="pager_first_text">Your custom text here</string>
+    <string name="slider_first_name_txt">Please enter your first name</string>
+    <string name="slider_last_name_txt">Please enter your last name</string>
+    <string name="slider_email_txt">Please enter your email address</string>
+    <string name="slider_mobile_txt">Please enter your mobile number</string>
+    <string name="slider_pco_txt">Please enter your PCO Licence</string>
+    <string name="slider_operator_txt">Please select your operator</string>
 
 </resources>

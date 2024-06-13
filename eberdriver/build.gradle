@@ -27,7 +27,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
            // buildConfigField "String", "BASE_URL", '"https://theae.uk/"'
            // buildConfigField "String", "BASE_URL", '"http://172.16.3.60:5000/"'
-            buildConfigField "String", "BASE_URL", '"http://149.102.152.123:8015"'
+            buildConfigField "String", "BASE_URL", '"https://backend.theae.uk/"'
         }
 
         debug {
@@ -35,7 +35,7 @@ android {
             debuggable true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             //buildConfigField "String", "BASE_URL", '"https://theae.uk/"'
-            buildConfigField "String", "BASE_URL", '"http://149.102.152.123:8015"'
+            buildConfigField "String", "BASE_URL", '"https://backend.theae.uk/"'
         }
 
     }
@@ -74,7 +74,7 @@ dependencies {
     implementation 'de.hdodenhof:circleimageview:3.0.0'
     implementation 'com.google.maps.android:android-maps-utils:0.5'
     implementation 'com.facebook.android:facebook-android-sdk:4.41.0'
-    implementation 'com.stripe:stripe-android:9.1.1'
+    implementation 'com.stripe:stripe-android:16.4.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     implementation 'androidx.activity:activity:1.9.0'
     testImplementation 'junit:junit:4.12'

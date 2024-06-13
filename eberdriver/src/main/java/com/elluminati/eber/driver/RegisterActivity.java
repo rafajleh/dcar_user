@@ -24,6 +24,7 @@ import androidx.annotation.Nullable;
 import com.elluminati.eber.driver.adapter.OpratorAdapter;
 import com.elluminati.eber.driver.components.CustomAddressChooseDialog;
 import com.elluminati.eber.driver.models.datamodels.Oprators;
+import com.elluminati.eber.driver.models.datamodels.RegisterDataModel;
 import com.elluminati.eber.driver.models.singleton.AddressUtils;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.material.textfield.TextInputLayout;
@@ -110,6 +111,8 @@ import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.common.api.Status;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.theartofdev.edmodo.cropper.CropImage;
 
 import org.json.JSONException;
@@ -177,6 +180,7 @@ public class RegisterActivity extends BaseAppCompatActivity implements TextView
     private LinearLayout llSocialLogin;
     private TextInputLayout tilPassword;
     private AccessTokenTracker accessTokenTracker;
+    RegisterDataModel registerDataModel;
 
 
     @Override
@@ -184,6 +188,12 @@ public class RegisterActivity extends BaseAppCompatActivity implements TextView
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
         CurrentTrip.getInstance().clear();
+
+        registerDataModel = (RegisterDataModel) getIntent().getSerializableExtra("reg_model");
+
+
+        // Print the JSON string
+        Log.d("", "EditTextValue2: "+registerDataModel.toString());
         googleApiClient = new GoogleClientHelper(this).build();
         if (googleApiClient != null && !googleApiClient.isConnected()) {
             googleApiClient.connect(GoogleApiClient.SIGN_IN_MODE_OPTIONAL);

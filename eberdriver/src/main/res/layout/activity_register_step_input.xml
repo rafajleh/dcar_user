@@ -121,14 +121,13 @@
 
         </LinearLayout>
 
-
         <RelativeLayout
             android:id="@+id/btnlay"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:orientation="horizontal"
             android:layout_alignParentBottom="true"
-            android:layout_marginBottom="80dp"
+            android:layout_marginBottom="20dp"
             android:gravity="center_vertical"
             android:paddingHorizontal="10dp">
 
@@ -175,8 +174,8 @@
             <LinearLayout
                 android:id="@+id/dotShowLayout"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginTop="50dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="10dp"
                 android:gravity="center"
                 android:orientation="horizontal">
 

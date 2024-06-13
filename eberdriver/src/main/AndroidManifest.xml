@@ -29,9 +29,11 @@
         android:networkSecurityConfig="@xml/network_security_config"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity
-            android:name=".Register_Step_Input"
-            android:exported="false" />
+
+        <activity android:name=".Register_Step_Input"
+            android:windowSoftInputMode="adjustResize">
+            <!-- Other activity settings -->
+        </activity>
         <activity android:name=".AddVehicle" />
         <activity android:name=".SetDestination" />
         <activity android:name=".ShowReferralActivity" />

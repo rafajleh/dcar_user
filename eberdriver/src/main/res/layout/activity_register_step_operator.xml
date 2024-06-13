@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Register_Step_Input"
+    android:orientation="vertical">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:padding="20dp">
+
+        <TextView
+            android:id="@+id/slider_text_mobile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/slider_operator_txt"
+            android:paddingLeft="22dp"
+            android:textSize="16dp"
+            android:layout_marginBottom="25dp"
+            android:textColor="@color/color_app_button"
+            />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/slider_text_mobile">
+
+            <EditText
+                android:id="@+id/slider_edt_operator"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@drawable/bg_editext"
+                android:gravity="center_vertical"
+                android:hint="Select Operator"
+                android:paddingStart="20dp"
+                android:visibility="gone"
+                android:textColor="@color/color_black"
+                android:textColorHint="@color/color_app_gray_light"
+                android:textSize="18sp" />
+
+            <Spinner
+                android:id="@+id/slider_spinner_operator"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:paddingLeft="20dp"
+
+                android:background="@drawable/bg_editext"
+                android:spinnerMode="dropdown"
+                />
+
+            <ImageView
+                android:id="@+id/slider_edt_operator_img"
+                android:layout_alignEnd="@+id/slider_spinner_operator"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginRight="5dp"
+                android:stateListAnimator="@anim/press_opacity"
+                android:src="@drawable/ic_arrow_down_gray"/>
+
+        </RelativeLayout>
+
+
+
+    </RelativeLayout>
+
+
+
+</LinearLayout>
