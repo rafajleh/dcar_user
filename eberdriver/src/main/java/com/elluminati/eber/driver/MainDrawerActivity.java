@@ -442,6 +442,7 @@ public class MainDrawerActivity extends BaseAppCompatActivity implements Locatio
 
     @Override
     public void onBackPressed() {
+        super.onBackPressed();
         if (topSheetBehavior.getState() == TopSheetBehavior.STATE_EXPANDED) {
             drawerClosed();
         } else {

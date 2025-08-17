@@ -36,7 +36,8 @@ import com.elluminati.eber.driver.utils.Const;
 import com.elluminati.eber.driver.utils.GlideApp;
 import com.elluminati.eber.driver.utils.ImageHelper;
 import com.elluminati.eber.driver.utils.Utils;
-import com.theartofdev.edmodo.cropper.CropImage;
+//import com.theartofdev.edmodo.cropper.CropImage;
+import com.yalantis.ucrop.UCrop;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -104,9 +105,7 @@ public class BankDetailActivity extends BaseAppCompatActivity {
             case Const.ServiceCode.CHOOSE_PHOTO:
                 onSelectFromGalleryResult(data);
                 break;
-            case CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE:
-                handleCrop(resultCode, data);
-                break;
+
         }
     }
 
@@ -140,8 +139,10 @@ public class BankDetailActivity extends BaseAppCompatActivity {
      * This method is used for crop the image which selected or captured by currentTrip.
      */
     private void beginCrop(Uri sourceUri) {
-        CropImage.activity(sourceUri).setGuidelines(com.theartofdev.edmodo.cropper.CropImageView
-                .Guidelines.ON).start(this);
+        UCrop.of(sourceUri, sourceUri)
+                .withAspectRatio(1, 1)
+                .withMaxResultSize(800, 800)
+                .start(this);
     }
 
     private void setProfileImage(Uri imageUri) {
@@ -161,13 +162,13 @@ public class BankDetailActivity extends BaseAppCompatActivity {
      * This method is used for  handel crop result after crop the image.
      */
     private void handleCrop(int resultCode, Intent result) {
-        CropImage.ActivityResult activityResult = CropImage.getActivityResult(result);
+      /*  CropImage.ActivityResult activityResult = CropImage.getActivityResult(result);
         if (resultCode == RESULT_OK) {
             setProfileImage(activityResult.getUri());
         } else if (resultCode == CropImage.CROP_IMAGE_ACTIVITY_RESULT_ERROR_CODE) {
             Toast.makeText(this, activityResult.getError().getMessage(),
                     Toast.LENGTH_SHORT).show();
-        }
+        }*/
     }
 
     @Override

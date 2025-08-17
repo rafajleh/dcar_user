@@ -113,7 +113,8 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.theartofdev.edmodo.cropper.CropImage;
+//import com.theartofdev.edmodo.cropper.CropImage;
+import com.yalantis.ucrop.UCrop;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -231,7 +232,6 @@ public class RegisterActivity extends BaseAppCompatActivity implements TextView
         tvTerms = (MyFontTextView) findViewById(R.id.tvTerms);
 
 
-
         tvopratorName = findViewById(R.id.tvopratorName);
         etpcolicence = findViewById(R.id.etpcolicence);
         tvopratorName.setOnClickListener(this);
@@ -250,6 +250,12 @@ public class RegisterActivity extends BaseAppCompatActivity implements TextView
         updateUi(false);
         checkPermission();
         initGenderSelection();
+        etFirstName.setText(registerDataModel.getFirstName());
+        etLastName.setText(registerDataModel.getLastName());
+        etEmail.setText(registerDataModel.getEmailAddress());
+        etAddress.setText(registerDataModel.getAddress());
+        etContactNumber.setText(registerDataModel.getMobileNumber());
+        etpcolicence.setText(registerDataModel.getPcoLicence());
         etPassword.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -595,9 +601,7 @@ public class RegisterActivity extends BaseAppCompatActivity implements TextView
             case Const.ServiceCode.CHOOSE_PHOTO:
                 onSelectFromGalleryResult(data);
                 break;
-            case CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE:
-                handleCrop(resultCode, data);
-                break;
+
             case Const.PERMISSION_FOR_LOCATION:
                 checkPermission();
                 break;
@@ -642,8 +646,11 @@ public class RegisterActivity extends BaseAppCompatActivity implements TextView
      * This method is used for crop the image which selected or captured by currentTrip.
      */
     private void beginCrop(Uri sourceUri) {
-        CropImage.activity(sourceUri).setGuidelines(com.theartofdev.edmodo.cropper.CropImageView
-                .Guidelines.ON).start(this);
+
+        UCrop.of(sourceUri, sourceUri)
+                .withAspectRatio(1, 1)
+                .withMaxResultSize(800, 800)
+                .start(this);
     }
 
     private void setProfileImage(Uri imageUri) {
@@ -655,7 +662,7 @@ public class RegisterActivity extends BaseAppCompatActivity implements TextView
      * This method is used for  handel crop result after crop the image.
      */
     private void handleCrop(int resultCode, Intent result) {
-        final CropImage.ActivityResult activityResult = CropImage.getActivityResult(result);
+       /* final CropImage.ActivityResult activityResult = CropImage.getActivityResult(result);
         if (resultCode == RESULT_OK) {
             uploadImageFilePath = imageHelper.getRealPathFromURI(activityResult.getUri());
             new ImageCompression(this).setImageCompressionListener(new ImageCompression
@@ -669,7 +676,7 @@ public class RegisterActivity extends BaseAppCompatActivity implements TextView
             }).execute(uploadImageFilePath);
         } else if (resultCode == CropImage.CROP_IMAGE_ACTIVITY_RESULT_ERROR_CODE) {
             Utils.showToast(activityResult.getError().getMessage(), this);
-        }
+        }*/
     }
 
     private void choosePhotoFromGallery() {
@@ -903,7 +910,7 @@ public class RegisterActivity extends BaseAppCompatActivity implements TextView
             public void onSelect(int position, ArrayList<Country> filterList) {
                 if (!selectedCountryPhoneCode.equalsIgnoreCase(filterList.get(position)
                         .getCountryphonecode())) {
-                    etContactNumber.getText().clear();
+                   // etContactNumber.getText().clear();
                     selectedCountryPhoneCode = filterList.get(position).getCountryphonecode();
                 }
                 phoneNumberLength = filterList.get(position).getPhoneNumberLength();
@@ -1343,7 +1350,7 @@ public class RegisterActivity extends BaseAppCompatActivity implements TextView
         phoneNumberMinLength = countryList.get(position).getPhoneNumberMinLength();
         if (!selectedCountryPhoneCode.equalsIgnoreCase(countryList.get(position)
                 .getCountryphonecode())) {
-            etContactNumber.getText().clear();
+           // etContactNumber.getText().clear();
             selectedCountryPhoneCode = countryList.get(position).getCountryphonecode();
         }
         setContactNoLength(phoneNumberLength);

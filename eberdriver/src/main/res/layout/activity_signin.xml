@@ -38,7 +38,7 @@
                 android:layout_marginTop="@dimen/dimen_bill_margin_two"
                 android:paddingBottom="@dimen/activity_logo_margin"
                 android:paddingTop="@dimen/activity_logo_margin"
-                android:src="@drawable/eber_logo_small"
+                android:src="@drawable/duser"
                 android:visibility="visible"/>
 
 

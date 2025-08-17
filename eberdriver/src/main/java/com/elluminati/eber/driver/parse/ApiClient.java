@@ -76,8 +76,8 @@ public class ApiClient {
                     .client(okHttpClient)
                     .addConverterFactory(ScalarsConverterFactory.create())
                     .addConverterFactory(GsonConverterFactory.create())
-                    //.baseUrl(BASE_URL)
-                    .baseUrl("http://149.102.152.123:8015")
+                    .baseUrl(BASE_URL)
+                   // .baseUrl("http://149.102.152.123:8015")
                     .build();
         }
         return retrofit;

@@ -29,7 +29,7 @@ public class SplashScreenActivity extends BaseAppCompatActivity {
 
 
     int oneTimeCall;
-    ImageView imglogo;
+    ImageView imglogo,imglogo2;
     LinearLayout lltxtview;
 
     @Override
@@ -39,10 +39,12 @@ public class SplashScreenActivity extends BaseAppCompatActivity {
 
          Log.e("check","rabbi");
         imglogo=findViewById(R.id.imglogo);
+        imglogo2 = findViewById(R.id.imglogo2);
         lltxtview=findViewById(R.id.lltxtview);
 
         Animation animation= AnimationUtils.loadAnimation(SplashScreenActivity.this,R.anim.zoomin);
         imglogo.startAnimation(animation);
+        imglogo2.startAnimation(animation);
         lltxtview.startAnimation(animation);
 
         Handler mHandler = new Handler(getMainLooper());

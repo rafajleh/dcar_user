@@ -17,7 +17,7 @@ android {
         resValue "string", "FACEBOOK_APP_ID", "126933474457184"
         resValue "string", "FB_LOGIN_PROTOCOL_SCHEME", "fb126933474457184"
        // resValue "string", "GOOGLE_ANDROID_API_KEY", "AIzaSyBRhcgwegTed4IE_2t1mVywzR52RmBkTuY"
-        resValue "string", "GOOGLE_ANDROID_API_KEY", "AIzaSyAhEg1SyVgQMDaaxltYjZ4TtqXYfGRYOew"
+        resValue "string", "GOOGLE_ANDROID_API_KEY", "AIzaSyCXhK1Sx69k_k9SdwKEnEZcUXKRm3FoLcE"
 
     }
     buildTypes {
@@ -25,17 +25,17 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-           // buildConfigField "String", "BASE_URL", '"https://theae.uk/"'
+            buildConfigField "String", "BASE_URL", '"https://theae.uk/"'
            // buildConfigField "String", "BASE_URL", '"http://172.16.3.60:5000/"'
-            buildConfigField "String", "BASE_URL", '"https://backend.theae.uk/"'
+           // buildConfigField "String", "BASE_URL", '"https://backend.theae.uk/"'
         }
 
         debug {
             minifyEnabled false
             debuggable true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            //buildConfigField "String", "BASE_URL", '"https://theae.uk/"'
-            buildConfigField "String", "BASE_URL", '"https://backend.theae.uk/"'
+            buildConfigField "String", "BASE_URL", '"https://theae.uk/"'
+            //buildConfigField "String", "BASE_URL", '"https://backend.theae.uk/"'
         }
 
     }
@@ -64,7 +64,9 @@ dependencies {
     implementation 'com.google.android.gms:play-services-location:17.0.0'
     implementation 'com.google.android.libraries.places:places:2.0.0'
     implementation 'com.google.android.gms:play-services-auth:17.0.0'
-    implementation 'com.google.firebase:firebase-messaging:19.0.1'
+
+    implementation 'com.google.firebase:firebase-messaging:23.4.1'
+    implementation 'com.google.firebase:firebase-installations:17.1.2'
     implementation 'com.google.firebase:firebase-crash:16.2.1'
     implementation 'com.google.firebase:firebase-database:18.0.1'
     implementation 'com.google.firebase:firebase-storage:18.1.1'
@@ -84,13 +86,17 @@ dependencies {
     implementation 'com.squareup.retrofit2:converter-gson:2.4.0'
     implementation 'com.squareup.retrofit2:converter-scalars:2.4.0'
     implementation 'com.squareup.okhttp3:logging-interceptor:3.10.0'
-    implementation 'com.theartofdev.edmodo:android-image-cropper:2.7.0'
+    //implementation 'com.canhub.android:android-image-cropper:2.7.0' // or latest
+    implementation 'com.github.yalantis:ucrop:2.2.8'
+
     implementation 'com.github.bumptech.glide:glide:4.9.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.9.0'
     implementation 'androidx.multidex:multidex:2.0.1'
-    implementation 'com.android.volley:volley:1.1.1'
-    implementation 'com.google.android.libraries.places:places:2.0.0'
-    implementation 'com.firebaseui:firebase-ui-database:3.3.1'
+    implementation 'com.android.volley:volley:1.2.1'
+    implementation 'com.google.android.libraries.places:places:3.2.0'
+
+    implementation 'com.firebaseui:firebase-ui-database:8.0.2'
+
     //implementation "androidx.viewpager2:viewpager2:1.1.0"
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'

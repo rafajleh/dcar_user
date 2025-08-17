@@ -19,6 +19,7 @@ import androidx.viewpager2.widget.ViewPager2;
 
 import com.elluminati.eber.driver.adapter.MyPagerAdapter;
 import com.elluminati.eber.driver.adapter.ViewPagerAdapter;
+import com.elluminati.eber.driver.fragments.RegisterStepAddress;
 import com.elluminati.eber.driver.fragments.RegisterStepEmailAddress;
 import com.elluminati.eber.driver.fragments.RegisterStepFirstName;
 import com.elluminati.eber.driver.fragments.RegisterStepLastName;
@@ -166,10 +167,16 @@ public class Register_Step_Input extends BaseAppCompatActivity {
                 Log.d("EditTextValue", "mobile "+values.getMobileNumber());
 
             }
-            else if (fragment instanceof RegisterStepOperator) {
+            /*else if (fragment instanceof RegisterStepOperator) {
                 String text = ((RegisterStepOperator) fragment).getText();
                 values.setOperator(text);
                 Log.d("EditTextValue", "operator "+values.getOperator());
+
+            }*/
+            else if (fragment instanceof RegisterStepAddress) {
+                String text = ((RegisterStepAddress) fragment).getText();
+                values.setAddress(text);
+                Log.d("EditTextValue", "email "+values.getAddress());
 
             }
             else if (fragment instanceof RegisterStepPCOLicence) {

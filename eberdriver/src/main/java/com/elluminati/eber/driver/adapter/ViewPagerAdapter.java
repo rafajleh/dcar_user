@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
+import com.elluminati.eber.driver.fragments.RegisterStepAddress;
 import com.elluminati.eber.driver.fragments.RegisterStepEmailAddress;
 import com.elluminati.eber.driver.fragments.RegisterStepFirstName;
 import com.elluminati.eber.driver.fragments.RegisterStepLastName;
@@ -44,9 +45,12 @@ public class ViewPagerAdapter extends FragmentStateAdapter {
                 fragmentMap.put(position, fragment4);
                 return fragment4;
             case 4:
-                RegisterStepOperator fragment5 = new RegisterStepOperator();
+                /*RegisterStepOperator fragment5 = new RegisterStepOperator();
                 fragmentMap.put(position, fragment5);
-                return fragment5;
+                return fragment5;*/
+            RegisterStepAddress fragment5 = new RegisterStepAddress();
+            fragmentMap.put(position, fragment5);
+            return fragment5;
             case 5:
                 RegisterStepPCOLicence fragment6 = new RegisterStepPCOLicence();
                 fragmentMap.put(position, fragment6);

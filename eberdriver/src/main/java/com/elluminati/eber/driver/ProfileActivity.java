@@ -59,7 +59,8 @@ import com.elluminati.eber.driver.utils.GlideApp;
 import com.elluminati.eber.driver.utils.ImageCompression;
 import com.elluminati.eber.driver.utils.ImageHelper;
 import com.elluminati.eber.driver.utils.Utils;
-import com.theartofdev.edmodo.cropper.CropImage;
+//import com.theartofdev.edmodo.cropper.CropImage;
+import com.yalantis.ucrop.UCrop;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -437,8 +438,10 @@ public class ProfileActivity extends BaseAppCompatActivity implements OTPListene
      */
     private void beginCrop(Uri sourceUri) {
 
-        CropImage.activity(sourceUri).setGuidelines(com.theartofdev.edmodo.cropper.CropImageView
-                .Guidelines.ON).start(this);
+        UCrop.of(sourceUri, sourceUri)
+                .withAspectRatio(1, 1)
+                .withMaxResultSize(800, 800)
+                .start(this);
     }
 
     private void setProfileImage(Uri imageUri) {
@@ -450,7 +453,7 @@ public class ProfileActivity extends BaseAppCompatActivity implements OTPListene
      * This method is used for  handel crop result after crop the image.
      */
     private void handleCrop(int resultCode, Intent result) {
-        final CropImage.ActivityResult activityResult = CropImage.getActivityResult(result);
+        /*final CropImage.ActivityResult activityResult = CropImage.getActivityResult(result);
         if (resultCode == RESULT_OK) {
             uploadImageFilePath = imageHelper.getRealPathFromURI(activityResult.getUri());
             new ImageCompression(this).setImageCompressionListener(new ImageCompression
@@ -465,7 +468,7 @@ public class ProfileActivity extends BaseAppCompatActivity implements OTPListene
         } else if (resultCode == CropImage.CROP_IMAGE_ACTIVITY_RESULT_ERROR_CODE) {
             Utils.showToast(activityResult.getError().getMessage(), this);
 
-        }
+        }*/
     }
 
     /**
@@ -498,9 +501,7 @@ public class ProfileActivity extends BaseAppCompatActivity implements OTPListene
             case Const.ServiceCode.CHOOSE_PHOTO:
                 onSelectFromGalleryResult(data);
                 break;
-            case CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE:
-                handleCrop(resultCode, data);
-                break;
+
             case Const.PERMISSION_FOR_CAMERA_AND_EXTERNAL_STORAGE:
                 openPhotoDialog();
                 break;

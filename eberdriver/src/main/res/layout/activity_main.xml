@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="@drawable/eber_sp"
+    android:background="@drawable/sp_background"
     android:orientation="vertical"
     android:layout_height="match_parent">
 
@@ -25,7 +25,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/imglogo"
-        android:src="@drawable/eber_logo_small"/>
+        android:src="@drawable/duser"/>
 
     </RelativeLayout>
 

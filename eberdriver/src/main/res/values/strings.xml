@@ -720,8 +720,8 @@
     <string name="text_register_next">Next</string>
 
 
-    <string name="LBL_SPECALLY">"Specially Developed for Luton"</string>
-    <string name="LBL_SMART">"Smart Scalable Super Fast Platform"</string>
+    <string name="LBL_SPECALLY">"Better way to"</string>
+    <string name="LBL_SMART">"Move around"</string>
     <string name="text_driver_pay">Top Up</string>
     <string name="registerpay">Top Up £10 &amp; Go Online</string>
 
@@ -747,6 +747,7 @@
     <string name="slider_first_name_txt">Please enter your first name</string>
     <string name="slider_last_name_txt">Please enter your last name</string>
     <string name="slider_email_txt">Please enter your email address</string>
+    <string name="slider_address_txt">Please enter your address</string>
     <string name="slider_mobile_txt">Please enter your mobile number</string>
     <string name="slider_pco_txt">Please enter your PCO Licence</string>
     <string name="slider_operator_txt">Please select your operator</string>

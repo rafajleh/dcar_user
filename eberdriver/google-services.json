@@ -1,15 +1,14 @@
-
 {
   "project_info": {
-    "project_number": "167531271182",
-    "firebase_url": "https://rare-scout-415412-default-rtdb.asia-southeast1.firebasedatabase.app",
-    "project_id": "rare-scout-415412",
-    "storage_bucket": "rare-scout-415412.appspot.com"
+    "project_number": "830752838659",
+    "firebase_url": "https://callacab-29e07-default-rtdb.firebaseio.com",
+    "project_id": "callacab-29e07",
+    "storage_bucket": "callacab-29e07.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:167531271182:android:84f05b4be3dbd12255585f",
+        "mobilesdk_app_id": "1:830752838659:android:0f50481f3b5ea907ac2a36",
         "android_client_info": {
           "package_name": "com.callacab.provider"
         }
@@ -17,7 +16,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyAhEg1SyVgQMDaaxltYjZ4TtqXYfGRYOew"
+          "current_key": "AIzaSyD2bYQ6xbKxp5pKJn9N48xfT1iYQApWU3E"
         }
       ],
       "services": {
@@ -28,7 +27,7 @@
     },
     {
       "client_info": {
-        "mobilesdk_app_id": "1:167531271182:android:2ef4df4a455f0bec55585f",
+        "mobilesdk_app_id": "1:830752838659:android:2f09f310d57ec0b1ac2a36",
         "android_client_info": {
           "package_name": "com.callacab.user"
         }
@@ -36,45 +35,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyAhEg1SyVgQMDaaxltYjZ4TtqXYfGRYOew"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": []
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:167531271182:android:7e727c3fac4252c155585f",
-        "android_client_info": {
-          "package_name": "com.callacablondon.driver"
-        }
-      },
-      "oauth_client": [],
-      "api_key": [
-        {
-          "current_key": "AIzaSyAhEg1SyVgQMDaaxltYjZ4TtqXYfGRYOew"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": []
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:167531271182:android:308329063c1380f755585f",
-        "android_client_info": {
-          "package_name": "com.callacablondon.user"
-        }
-      },
-      "oauth_client": [],
-      "api_key": [
-        {
-          "current_key": "AIzaSyAhEg1SyVgQMDaaxltYjZ4TtqXYfGRYOew"
+          "current_key": "AIzaSyD2bYQ6xbKxp5pKJn9N48xfT1iYQApWU3E"
         }
       ],
       "services": {

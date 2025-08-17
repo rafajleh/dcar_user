@@ -50,6 +50,52 @@
             android:textSize="@dimen/size_general_small">
 
         </com.elluminati.eber.driver.components.MyFontButton>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/profile_views_shape_balck">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:weightSum="2"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/good_morning"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Good Morning"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="10dp"
+                    android:textColor="@color/color_app_button"
+                    android:textSize="@dimen/size_label">
+
+                </TextView>
+                <TextView
+                    android:id="@+id/prfile_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Fajleh Rabbi"
+                    android:layout_weight="1"
+                    android:layout_gravity="right"
+                    android:layout_marginBottom="2dp"
+                    android:textColor="@color/color_app_button"
+                    android:textSize="@dimen/size_label">
+
+                </TextView>
+
+            </LinearLayout>
+
+
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:src="@drawable/arrow">
+
+            </ImageView>
+        </LinearLayout>
 
 
     </RelativeLayout>

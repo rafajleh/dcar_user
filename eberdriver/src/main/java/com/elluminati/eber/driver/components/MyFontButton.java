@@ -13,7 +13,7 @@ import com.elluminati.eber.driver.utils.AppLog;
 /**
  * @author Elluminati elluminati.in
  */
-public class MyFontButton extends Button {
+public class MyFontButton extends androidx.appcompat.widget.AppCompatButton {
 
     //	private static final String TAG = "Button";
     public static final String TAG = "MyFontButton";

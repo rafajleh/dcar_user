@@ -15,6 +15,17 @@ public class RegisterDataModel implements Serializable {
     private String lastName;
     @SerializedName("email_address")
     private String emailAddress;
+
+    public String getAddress() {
+        return Address;
+    }
+
+    public void setAddress(String address) {
+        Address = address;
+    }
+
+    @SerializedName("address")
+    private String Address;
     @SerializedName("mobile_no")
     private String mobileNumber;
     @SerializedName("operator")
